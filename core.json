@@ -1,0 +1,303 @@
+[
+  [
+    [ ["#", "{...}"], "IGNORE", [], null ],
+    [ ["if", "(", "{a}", "=", "=", "{b}", ")"], "IF_EQ", ["{a}", "{b}"], null, true ],
+    [ ["if", "(", "{a}", "!", "=", "{b}", ")"], "IF_NEQ", ["{a}", "{b}"], null, true ],
+    [ ["if", "(", "{a}", "<", "{b}", ")"], "IF_LT", ["{a}", "{b}"], null, true ],
+    [ ["else", "if", "(", "{a}", "=", "=", "{b}", ")"], "ELIF_EQ", ["{a}", "{b}"], null, true ],
+    [ ["else", "if", "(", "{a}", "!", "=", "{b}", ")"], "ELIF_NEQ", ["{a}", "{b}"], null, true ],
+    [ ["else"], "ELSE", [], null, true ],
+    [ ["while", "(", "{a}", "=", "=", "{b}", ")"], "WHILE_EQ", ["{a}", "{b}"], null, true ],
+    [ ["while", "(", "{a}", "!", "=", "{b}", ")"], "WHILE_NEQ", ["{a}", "{b}"], null, true ],
+    [ ["while", "(", "{a}", "<", "{b}", ")"], "WHILE_LT", ["{a}", "{b}"], null, true ],
+    [ ["FUNC", "{a}", "(", "{b}", ")"], "FUNC_DEF", ["{a}", "{b}"], null, true ],
+    [ ["FUNC", "{a}", "(", ")"], "FUNC_DEF_0", ["{a}"], null, true ],
+    [ ["CALL", "{a}", "(", "{b}", ")"], "FUNC_CALL", ["{a}", "{b}"], null, true ],
+    [ ["CALL", "{a}", "(", ")"], "FUNC_CALL_0", ["{a}"], null, true ],
+    [ ["{a}", ":", "CALL", "{b}", "(", "{c}", ")"], "FUNC_CALL_RET", ["{b}", "{c}"], "{a}", true ],
+    [ ["return", "{a}"], "RETURN", ["{a}"], null, true ],
+    [ ["return"], "RETURN_0", [], null, true ],
+    [ ["end"], "END", [], null, true ],
+    [ ["EVAL", "{a}"], "EVAL_JPP", ["{a}"], null, true ],
+    [ ["eval", "{a}"], "EVAL_JPP", ["{a}"], null, true ],
+    [ ["{a}", ":", "LEN", "{b}"], "LEN", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "CHAR_CODE", "{b}", "AT", "{c}"], "CHAR_CODE", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "FROM_CHAR_CODE", "{b}"], "FROM_CHAR_CODE", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "{b}", "+", "{c}"], "ADD", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "{b}", "%", "{c}"], "MOD", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "{b}", "^", "{c}"], "XOR", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "{b}", ".", "{c}", ".", "{d}", ".", "{e}"], "CONCAT_4", ["{b}", "{c}", "{d}", "{e}"], "{a}" ],
+    [ ["{a}", ":", "{b}", ".", "{c}", ".", "{d}"], "CONCAT_3", ["{b}", "{c}", "{d}"], "{a}" ],
+    [ ["{a}", ":", "{b}", ".", "{c}"], "CONCAT", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", "(", "{b}", ")"], "{a}", ["{b}"], null ],
+    [ ["{a}", "(", "{b}", ",", "{c}", ")"], "{a}", ["{b}", "{c}"], null ],
+    [ ["{a}", ":", "{b}", "(", "{c}", ")"], "{b}", ["{c}"], "{a}" ],
+    [ ["import", "{a}"], "IMPORT", ["{a}"], null ],
+    [ ["{a}", ":", "ALLOC", "{b}"], "ALLOC", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "FETCH", "\"stdin\"", "\"r\""], "STDIN_FETCH", [], "{a}" ],
+    [ ["{a}", ":", "FETCH", "{b}", "{c}"], "FETCH", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "READ", "{b}", "{c}", "{d}"], "READ", ["{b}", "{c}", "{d}"], "{a}" ],
+    [ ["print", "(", "{a}", ")"], "PRINT", ["{a}"], null ],
+    [ ["PRINT", "(", "{a}", ")"], "PRINT", ["{a}"], null ],
+    [ ["print", "{a}"], "PRINT", ["{a}"], null ],
+    [ ["PRINT", "{a}"], "PRINT", ["{a}"], null ],
+    [ ["{a}", ":", "SLEEP", "{b}"], "SLEEP", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "TOSTRING", "{b}", "{c}"], "TOSTRING", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "STRIP", "{b}"], "STRIP", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "UPPER", "{b}"], "UPPER", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "LOWER", "{b}"], "LOWER", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "TIME"], "TIME", [], "{a}" ],
+    [ ["{a}", ":", "ARG", "{b}"], "ARG", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "EVAL", "{b}"], "EVAL", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "eval", "{b}"], "EVAL", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "IDENTITY_5", "{b}", "{c}", "{d}", "{e}", "{f}"], "IDENTITY_5", ["{b}", "{c}", "{d}", "{e}", "{f}"], "{a}" ],
+    [ ["{a}", ":", "IDENTITY_4", "{b}", "{c}", "{d}", "{e}"], "IDENTITY_4", ["{b}", "{c}", "{d}", "{e}"], "{a}" ],
+    [ ["{a}", ":", "IDENTITY_3", "{b}", "{c}", "{d}"], "IDENTITY_3", ["{b}", "{c}", "{d}"], "{a}" ],
+    [ ["{a}", ":", "IDENTITY_2", "{b}", "{c}"], "IDENTITY_2", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "IDENTITY_1", "{b}"], "IDENTITY_1", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "IDENTITY", "{b}"], "IDENTITY_1", ["{b}"], "{a}" ],
+    [ ["{a}", ":", "RAND"], "RAND", [], "{a}" ],
+    [ ["{a}", "=", "{b}"], "ASSIGN", ["{b}"], "{a}" ],
+    [ ["{a}", "{b}", "{c}", "{d}"], "{a}", ["{b}", "{c}", "{d}"], null ],
+    [ ["{a}", "{b}", "{c}"], "{a}", ["{b}", "{c}"], null ],
+    [ ["{a}", "{b}"], "{a}", ["{b}"], null ]
+  ],
+  {
+    "IGNORE": [
+      ["return NULL;"],
+      ["() => {}"]
+    ],
+    "IF_EQ": [
+      ["void* a=args[0]; void* b=args[1]; bool c = (a==b) || ((uintptr_t)a>0x10000 && (uintptr_t)b>0x10000 && strcmp((char*)a,(char*)b)==0); env->stack[env->stack_length].t='i'; env->stack[env->stack_length].cond=c; env->stack[env->stack_length].skipBefore=env->skip; env->stack_length++; env->skip=env->skip || !c; return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; e.stack.push({ t: 'if', cond: _a == _b, skipBefore: e.skip }); e.skip = e.skip || !(_a == _b); }", "{a}", "{b}"]
+    ],
+    "IF_NEQ": [
+      ["void* a=args[0]; void* b=args[1]; bool c = !((a==b) || ((uintptr_t)a>0x10000 && (uintptr_t)b>0x10000 && strcmp((char*)a,(char*)b)==0)); env->stack[env->stack_length].t='i'; env->stack[env->stack_length].cond=c; env->stack[env->stack_length].skipBefore=env->skip; env->stack_length++; env->skip=env->skip || !c; return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; e.stack.push({ t: 'if', cond: _a != _b, skipBefore: e.skip }); e.skip = e.skip || !(_a != _b); }", "{a}", "{b}"]
+    ],
+    "IF_LT": [
+      ["void* a=args[0]; void* b=args[1]; long num_a = (uintptr_t)a<0x10000 ? (long)(intptr_t)a : 0; long num_b = (uintptr_t)b<0x10000 ? (long)(intptr_t)b : 0; bool c = num_a < num_b; env->stack[env->stack_length].t='i'; env->stack[env->stack_length].cond=c; env->stack[env->stack_length].skipBefore=env->skip; env->stack_length++; env->skip=env->skip || !c; return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; e.stack.push({ t: 'if', cond: Number(_a) < Number(_b), skipBefore: e.skip }); e.skip = e.skip || !(Number(_a) < Number(_b)); }", "{a}", "{b}"]
+    ],
+    "ELIF_EQ": [
+      ["void* a=args[0]; void* b=args[1]; if(env->stack_length>0){ StackItem *top=&env->stack[env->stack_length-1]; if(!top->skipBefore){ if(top->cond){ env->skip=true; }else{ top->cond = ((a==b)||((uintptr_t)a>0x10000 && (uintptr_t)b>0x10000 && strcmp((char*)a,(char*)b)==0)); env->skip=!top->cond; } } } return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; let top = e.stack[e.stack.length - 1]; if (top && !top.skipBefore) { if (top.cond) { e.skip = true; } else { top.cond = (_a == _b); e.skip = !top.cond; } } }", "{a}", "{b}"]
+    ],
+    "ELIF_NEQ": [
+      ["void* a=args[0]; void* b=args[1]; if(env->stack_length>0){ StackItem *top=&env->stack[env->stack_length-1]; if(!top->skipBefore){ if(top->cond){ env->skip=true; }else{ top->cond = !((a==b)||((uintptr_t)a>0x10000 && (uintptr_t)b>0x10000 && strcmp((char*)a,(char*)b)==0)); env->skip=!top->cond; } } } return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; let top = e.stack[e.stack.length - 1]; if (top && !top.skipBefore) { if (top.cond) { e.skip = true; } else { top.cond = (_a != _b); e.skip = !top.cond; } } }", "{a}", "{b}"]
+    ],
+    "ELSE": [
+      ["if(env->stack_length>0){ StackItem *top=&env->stack[env->stack_length-1]; if(!top->skipBefore){ env->skip=top->cond; top->cond=true; } } return NULL;"],
+      ["() => { let e = globalThis._ENV; let top = e.stack[e.stack.length - 1]; if (top && !top.skipBefore) { e.skip = top.cond; top.cond = true; } }"]
+    ],
+    "WHILE_EQ": [
+      ["void* a=args[0]; void* b=args[1]; bool c = (a==b) || ((uintptr_t)a>0x10000 && (uintptr_t)b>0x10000 && strcmp((char*)a,(char*)b)==0); env->stack[env->stack_length].t='w'; env->stack[env->stack_length].cond=c; env->stack[env->stack_length].skipBefore=env->skip; env->stack[env->stack_length].L=env->L; env->stack_length++; env->skip=env->skip || !c; return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; let c = _a == _b; e.stack.push({ t: 'w', L: e.L, cond: c, skipBefore: e.skip }); e.skip = e.skip || !c; }", "{a}", "{b}"]
+    ],
+    "WHILE_NEQ": [
+      ["void* a=args[0]; void* b=args[1]; bool c = !((a==b) || ((uintptr_t)a>0x10000 && (uintptr_t)b>0x10000 && strcmp((char*)a,(char*)b)==0)); env->stack[env->stack_length].t='w'; env->stack[env->stack_length].cond=c; env->stack[env->stack_length].skipBefore=env->skip; env->stack[env->stack_length].L=env->L; env->stack_length++; env->skip=env->skip || !c; return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; let c = _a != _b; e.stack.push({ t: 'w', L: e.L, cond: c, skipBefore: e.skip }); e.skip = e.skip || !c; }", "{a}", "{b}"]
+    ],
+    "WHILE_LT": [
+      ["void* a=args[0]; void* b=args[1]; long num_a = (uintptr_t)a<0x10000 ? (long)(intptr_t)a : 0; long num_b = (uintptr_t)b<0x10000 ? (long)(intptr_t)b : 0; bool c = num_a < num_b; env->stack[env->stack_length].t='w'; env->stack[env->stack_length].cond=c; env->stack[env->stack_length].skipBefore=env->skip; env->stack[env->stack_length].L=env->L; env->stack_length++; env->skip=env->skip || !c; return NULL;", "{a}", "{b}"],
+      ["(_a, _b) => { let e = globalThis._ENV; let c = Number(_a) < Number(_b); e.stack.push({ t: 'w', L: e.L, cond: c, skipBefore: e.skip }); e.skip = e.skip || !c; }", "{a}", "{b}"]
+    ],
+    "FUNC_DEF": [
+      ["/* Funcs precisam ser tratadas no parser do C */ return NULL;", "{a}", "{b}"],
+      ["(_n, _a) => { let e = globalThis._ENV; e.funcs = e.funcs || {}; e.funcs[_n] = { L: e.L, arg: _a }; e.stack.push({ t: 'f', skipBefore: e.skip }); e.skip = true; }", "{a}", "{b}"]
+    ],
+    "FUNC_DEF_0": [
+      ["/* Funcs precisam ser tratadas no parser do C */ return NULL;", "{a}"],
+      ["(_n) => { let e = globalThis._ENV; e.funcs = e.funcs || {}; e.funcs[_n] = { L: e.L, arg: null }; e.stack.push({ t: 'f', skipBefore: e.skip }); e.skip = true; }", "{a}"]
+    ],
+    "FUNC_CALL": [
+      ["/* Requer suporte estrutural no C */ return NULL;", "{a}", "{b}"],
+      ["(_n, _v) => { let e = globalThis._ENV; if(e.funcs && e.funcs[_n]) { e.stack.push({ t: 'c', L: e.L, skipBefore: e.skip }); if (e.funcs[_n].arg) globalThis[e.funcs[_n].arg.replace('$', '')] = _v; e.L = e.funcs[_n].L; } }", "{a}", "{b}"]
+    ],
+    "FUNC_CALL_0": [
+      ["/* Requer suporte estrutural no C */ return NULL;", "{a}"],
+      ["(_n) => { let e = globalThis._ENV; if(e.funcs && e.funcs[_n]) { e.stack.push({ t: 'c', L: e.L, skipBefore: e.skip }); e.L = e.funcs[_n].L; } }", "{a}"]
+    ],
+    "FUNC_CALL_RET": [
+      ["/* Requer suporte estrutural no C */ return NULL;", "{b}", "{c}"],
+      ["(_n, _v) => { let e = globalThis._ENV; if(e.funcs && e.funcs[_n]) { e.stack.push({ t: 'c', L: e.L, skipBefore: e.skip }); if (e.funcs[_n].arg) globalThis[e.funcs[_n].arg.replace('$', '')] = _v; e.L = e.funcs[_n].L; } return null; }", "{b}", "{c}"]
+    ],
+    "RETURN": [
+      ["return args[0];", "{a}"],
+      ["(_v) => { let e = globalThis._ENV; let top; while((top = e.stack.pop())) { if(top.t === 'c') break; } if(top) { e.L = top.L; e.skip = top.skipBefore; return _v; } }", "{a}"]
+    ],
+    "RETURN_0": [
+      ["return NULL;"],
+      ["() => { let e = globalThis._ENV; let top; while((top = e.stack.pop())) { if(top.t === 'c') break; } if(top) { e.L = top.L; e.skip = top.skipBefore; } }"]
+    ],
+    "EVAL_JPP": [
+      ["if(!args[0]) return NULL; char bf[4096]; strcpy(bf, (char*)args[0]); FILE* f=fopen(\".evl.jpp\",\"w\"); if(f){fputs(bf,f); fclose(f); run(\".evl.jpp\"); remove(\".evl.jpp\");} return NULL;", "{a}"],
+      ["(code) => { let fs = require('fs'); fs.writeFileSync('.evl.jpp', String(code)); if(typeof run === 'function') run('.evl.jpp'); if(fs.existsSync('.evl.jpp')) fs.unlinkSync('.evl.jpp'); }", "{a}"]
+    ],
+    "END": [
+      ["if(env->stack_length>0){ StackItem *top=&env->stack[--env->stack_length]; if(top->t=='w' && !top->skipBefore && !env->skip) env->L=top->L-1; else if(top->t=='c') env->L=top->L; env->skip=top->skipBefore; } return NULL;"],
+      ["() => { let e = globalThis._ENV; let top = e.stack.pop(); if (top) { if (top.t === 'w' && !top.skipBefore && !e.skip) { e.L = top.L - 1; } else if (top.t === 'c' && !top.skipBefore && !e.skip) { e.L = top.L; } e.skip = top.skipBefore; } }"]
+    ],
+    "IMPORT": [
+      ["if(!args[0]) return NULL; char bf[256]; strcpy(bf, (char*)args[0]); run(bf); return NULL;", "{a}"],
+      ["run", "{a}"]
+    ],
+    "ALLOC": [
+      ["long sz = (uintptr_t)args[0]<0x10000 ? (long)(intptr_t)args[0] : atol((char*)args[0]); return calloc(1, sz);", "{b}"],
+      ["Buffer.alloc", "{b}"]
+    ],
+    "STDIN_FETCH": [
+      ["return stdin;"],
+      ["() => 0"]
+    ],
+    "FETCH": [
+      ["if(!args[0] || !args[1]) return NULL; if(strcmp((char*)args[0], \"stdin\")==0) return stdin; return fopen((char*)args[0], (char*)args[1]);", "{b}", "{c}"],
+      ["fs.openSync", "{b}", "{c}"]
+    ],
+    "READ": [
+      ["if(!args[0] || !args[2]) return NULL; long sz = (uintptr_t)args[1]<0x10000 ? (long)(intptr_t)args[1] : atol((char*)args[1]); size_t r = fread(args[0], 1, sz, (FILE*)args[2]); ((char*)args[0])[r] = '\\0'; return args[0];", "{b}", "{c}", "{d}"],
+      ["fs.readSync", "{d}", "{b}", "0", "{c}"]
+    ],
+    "PRINT": [
+      ["void* msg=args[0]; if((uintptr_t)msg<0x10000) printf(\"%ld\\n\", (long)(intptr_t)msg); else if(msg) printf(\"%s\\n\", (char*)msg); return NULL;", "{a}"],
+      ["(msg) => console.log(String(msg))", "{a}"]
+    ],
+    "UPPER": [
+      ["if(!args[0]||(uintptr_t)args[0]<0x10000) return args[0]; char* s=(char*)args[0]; char* d=malloc(strlen(s)+1); for(int i=0;s[i];i++) d[i]=s[i]>='a'&&s[i]<='z'?s[i]-32:s[i]; d[strlen(s)]='\\0'; return d;", "{b}"],
+      ["(s) => String(s).toUpperCase()", "{b}"]
+    ],
+    "LOWER": [
+      ["if(!args[0]||(uintptr_t)args[0]<0x10000) return args[0]; char* s=(char*)args[0]; char* d=malloc(strlen(s)+1); for(int i=0;s[i];i++) d[i]=s[i]>='A'&&s[i]<='Z'?s[i]+32:s[i]; d[strlen(s)]='\\0'; return d;", "{b}"],
+      ["(s) => String(s).toLowerCase()", "{b}"]
+    ],
+    "TIME": [
+      ["long time(void*); char* b=malloc(32); sprintf(b,\"%ld\",(long)time(NULL)); return b;"],
+      ["() => String(Math.floor(Date.now()/1000))"]
+    ],
+    "ARG": [
+      ["return \"ARG_IN_JS_ONLY_FOR_NOW\";", "{b}"],
+      ["(idx) => process.argv[2 + Number(idx)] || \"\"", "{b}"]
+    ],
+    "EVAL": [
+      ["if(!args[0]) return NULL; char bf[4096]; strcpy(bf, (char*)args[0]); FILE* f=fopen(\".evl.jpp\",\"w\"); if(f){fputs(bf,f); fclose(f); run(\".evl.jpp\"); remove(\".evl.jpp\");} return args[0];", "{b}"],
+      ["(code) => { let fs = require('fs'); fs.writeFileSync('.evl.jpp', String(code)); if(typeof run === 'function') run('.evl.jpp'); if(fs.existsSync('.evl.jpp')) fs.unlinkSync('.evl.jpp'); return String(code); }", "{b}"]
+    ],
+    "IDENTITY_1": [
+      ["return args[0];", "{b}"],
+      ["(a) => a", "{b}"]
+    ],
+    "IDENTITY_2": [
+      ["if((uintptr_t)args[0]<0x10000 && (uintptr_t)args[1]<0x10000) return (void*)(intptr_t)((long)args[0]+(long)args[1]); char* s1=(uintptr_t)args[0]<0x10000?\"0\":(char*)args[0]; char* s2=(uintptr_t)args[1]<0x10000?\"0\":(char*)args[1]; char* buf=malloc(strlen(s1)+strlen(s2)+1); strcpy(buf, s1); strcat(buf, s2); return buf;", "{b}", "{c}"],
+      ["(a,b) => (typeof a === 'number' && typeof b === 'number') ? (a + b) : Number(a) + Number(b)", "{b}", "{c}"]
+    ],
+    "IDENTITY_3": [
+      ["char* buf=malloc(1024); buf[0]='\\0'; for(int i=0; i<3; i++){ if(args[i] && (uintptr_t)args[i]<0x10000){ char t[32]; sprintf(t,\"%ld\",(long)(intptr_t)args[i]); strcat(buf,t); }else if(args[i]){ strcat(buf,(char*)args[i]); } } return buf;", "{b}", "{c}", "{d}"],
+      ["(a,b,c) => Number(a) + Number(b) + Number(c)", "{b}", "{c}", "{d}"]
+    ],
+    "IDENTITY_4": [
+      ["char* buf=malloc(1024); buf[0]='\\0'; for(int i=0; i<4; i++){ if(args[i] && (uintptr_t)args[i]<0x10000){ char t[32]; sprintf(t,\"%ld\",(long)(intptr_t)args[i]); strcat(buf,t); }else if(args[i]){ strcat(buf,(char*)args[i]); } } return buf;", "{b}", "{c}", "{d}", "{e}"],
+      ["(a,b,c,d) => Number(a) + Number(b) + Number(c) + Number(d)", "{b}", "{c}", "{d}", "{e}"]
+    ],
+    "IDENTITY_5": [
+      ["char* buf=malloc(1024); buf[0]='\\0'; for(int i=0; i<5; i++){ if(args[i] && (uintptr_t)args[i]<0x10000){ char t[32]; sprintf(t,\"%ld\",(long)(intptr_t)args[i]); strcat(buf,t); }else if(args[i]){ strcat(buf,(char*)args[i]); } } return buf;", "{b}", "{c}", "{d}", "{e}", "{f}"],
+      ["(a,b,c,d,e) => Number(a) + Number(b) + Number(c) + Number(d) + Number(e)", "{b}", "{c}", "{d}", "{e}", "{f}"]
+    ],
+    "RAND": [
+      ["char* buf=malloc(16); snprintf(buf, 16, \"%d\", rand() % 10); return buf;"],
+      ["() => String(Math.floor(Math.random() * 10))"]
+    ],
+    "SLEEP": [
+      ["long ms = (uintptr_t)args[0]<0x10000 ? (long)(intptr_t)args[0] : atol((char*)args[0]); usleep(ms * 1000); return NULL;", "{b}"],
+      ["(ms) => { const start = Date.now(); while(Date.now() - start < Number(ms)){} return null; }", "{b}"]
+    ],
+    "ASSIGN": [
+      ["return args[0];", "{b}"],
+      ["(a) => a", "{b}"]
+    ],
+    "TOSTRING": [
+      ["return args[0];", "{b}"],
+      ["(buf, len) => buf.toString('utf8', 0, len)", "{b}", "{c}"]
+    ],
+    "STRIP": [
+      ["if(!args[0]||(uintptr_t)args[0]<0x10000) return args[0]; char* s=(char*)args[0]; while(*s==' '||*s=='\\t'||*s=='\\n'||*s=='\\r') s++; char* end=s+strlen(s)-1; while(end>s&&(*end==' '||*end=='\\t'||*end=='\\n'||*end=='\\r')) *end--='\\0'; return s;", "{b}"],
+      ["(s) => String(s).trim()", "{b}"]
+    ],
+    "LEN": [
+      ["if(!args[0] || (uintptr_t)args[0]<0x10000) return 0; return (void*)(intptr_t)strlen((char*)args[0]);", "{b}"],
+      ["(s) => String(s||'').length", "{b}"]
+    ],
+    "CHAR_CODE": [
+      ["if(!args[0] || (uintptr_t)args[0]<0x10000) return 0; char* s = (char*)args[0]; long idx = (long)(intptr_t)args[1]; if(idx<0 || idx>=strlen(s)) return 0; return (void*)(intptr_t)s[idx];", "{b}", "{c}"],
+      ["(s, idx) => String(s||'').charCodeAt(Number(idx)) || 0", "{b}", "{c}"]
+    ],
+    "FROM_CHAR_CODE": [
+      ["long c = (long)(intptr_t)args[0]; char* buf = malloc(2); buf[0] = (char)c; buf[1] = '\\0'; return buf;", "{b}"],
+      ["(c) => String.fromCharCode(Number(c))", "{b}"]
+    ],
+    "ADD": [
+      ["long a = (long)(intptr_t)args[0]; long b = (long)(intptr_t)args[1]; return (void*)(intptr_t)(a + b);", "{b}", "{c}"],
+      ["(a, b) => Number(a) + Number(b)", "{b}", "{c}"]
+    ],
+    "MOD": [
+      ["long a = (long)(intptr_t)args[0]; long b = (long)(intptr_t)args[1]; return b == 0 ? 0 : (void*)(intptr_t)(a % b);", "{b}", "{c}"],
+      ["(a, b) => Number(a) % Number(b)", "{b}", "{c}"]
+    ],
+    "XOR": [
+      ["long a = (long)(intptr_t)args[0]; long b = (long)(intptr_t)args[1]; return (void*)(intptr_t)(a ^ b);", "{b}", "{c}"],
+      ["(a, b) => Number(a) ^ Number(b)", "{b}", "{c}"]
+    ],
+    "CONCAT": [
+      ["char* s1=(uintptr_t)args[0]<0x10000?\"\":(char*)args[0]; char* s2=(uintptr_t)args[1]<0x10000?\"\":(char*)args[1]; char* buf=malloc(strlen(s1)+strlen(s2)+1); strcpy(buf, s1); strcat(buf, s2); return buf;", "{b}", "{c}"],
+      ["(a, b) => String(a||'') + String(b||'')", "{b}", "{c}"]
+    ],
+    "CONCAT_3": [
+      ["char* s1=(uintptr_t)args[0]<0x10000?\"\":(char*)args[0]; char* s2=(uintptr_t)args[1]<0x10000?\"\":(char*)args[1]; char* s3=(uintptr_t)args[2]<0x10000?\"\":(char*)args[2]; char* buf=malloc(strlen(s1)+strlen(s2)+strlen(s3)+1); strcpy(buf, s1); strcat(buf, s2); strcat(buf, s3); return buf;", "{b}", "{c}", "{d}"],
+      ["(a, b, c) => String(a||'') + String(b||'') + String(c||'')", "{b}", "{c}", "{d}"]
+    ],
+    "CONCAT_4": [
+      ["char* s1=(uintptr_t)args[0]<0x10000?\"\":(char*)args[0]; char* s2=(uintptr_t)args[1]<0x10000?\"\":(char*)args[1]; char* s3=(uintptr_t)args[2]<0x10000?\"\":(char*)args[2]; char* s4=(uintptr_t)args[3]<0x10000?\"\":(char*)args[3]; char* buf=malloc(strlen(s1)+strlen(s2)+strlen(s3)+strlen(s4)+1); strcpy(buf, s1); strcat(buf, s2); strcat(buf, s3); strcat(buf, s4); return buf;", "{b}", "{c}", "{d}", "{e}"],
+      ["(a, b, c, d) => String(a||'') + String(b||'') + String(c||'') + String(d||'')", "{b}", "{c}", "{d}", "{e}"]
+    ]
+  },
+  [ "(", ")", ",", "#", "<", "+", "%", "^", ".", "=" ],
+  {
+    "ERR_SYNTAX": [
+      { "color": "red_bold", "text": "error[E00200]: Syntax is not defined" },
+      { "color": "blue", "text": " --> {file}:{line}" },
+      { "color": "blue", "text": "  |" },
+      { "color": "blue", "text": "{line} | {code}" },
+      { "color": "blue", "text": "  |" },
+      { "color": "red_bold", "text": "  {pointer} unexpected syntax" }
+    ],
+    "ERR_UNDEF": [
+      { "color": "red_bold", "text": "error[E00201]: Function or operation not found" },
+      { "color": "blue", "text": " --> {file}:{line}" },
+      { "color": "blue", "text": "  |" },
+      { "color": "blue", "text": "{line} | {code}" },
+      { "color": "blue", "text": "  |" },
+      { "color": "red_bold", "text": "  {pointer} '{op}' is not defined in core.json" }
+    ],
+    "ERR_FILE": [
+      { "color": "red_bold", "text": "error[E00404]: File not found" },
+      { "color": "blue", "text": "  |" },
+      { "color": "red_bold", "text": "  Cannot open file '{file}'" }
+    ],
+    "ERR_JS": [
+      { "color": "red_bold", "text": "error[E00500]: Internal Execution Error" },
+      { "color": "blue", "text": " --> {file}:{line}" },
+      { "color": "blue", "text": "  |" },
+      { "color": "blue", "text": "{line} | {code}" },
+      { "color": "blue", "text": "  |" },
+      { "color": "red_bold", "text": "  {pointer} Failed to execute '{op}' safely." }
+    ]
+  },
+  {
+    "red_bold": "\u001b[1;31m",
+    "blue": "\u001b[34m",
+    "reset": "\u001b[0m"
+  },
+  ["\"", "'", "`"],
+  [" ", "\t", "\r"],
+  ["\n", ";"]
+]

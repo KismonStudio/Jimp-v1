@@ -24,6 +24,7 @@
     [ ["{a}", ":", "CHAR_CODE", "{b}", "AT", "{c}"], "CHAR_CODE", ["{b}", "{c}"], "{a}" ],
     [ ["{a}", ":", "FROM_CHAR_CODE", "{b}"], "FROM_CHAR_CODE", ["{b}"], "{a}" ],
     [ ["{a}", ":", "{b}", "+", "{c}"], "ADD", ["{b}", "{c}"], "{a}" ],
+    [ ["{a}", ":", "{b}", "+", "{c}", "#", "{...}"], "ADD", ["{b}", "{c}"], "{a}" ],
     [ ["{a}", ":", "{b}", "%", "{c}"], "MOD", ["{b}", "{c}"], "{a}" ],
     [ ["{a}", ":", "{b}", "^", "{c}"], "XOR", ["{b}", "{c}"], "{a}" ],
     [ ["{a}", ":", "{b}", ".", "{c}", ".", "{d}", ".", "{e}"], "CONCAT_4", ["{b}", "{c}", "{d}", "{e}"], "{a}" ],
@@ -41,6 +42,8 @@
     [ ["PRINT", "(", "{a}", ")"], "PRINT", ["{a}"], null ],
     [ ["print", "{a}"], "PRINT", ["{a}"], null ],
     [ ["PRINT", "{a}"], "PRINT", ["{a}"], null ],
+    [ ["print", "{a}", "#", "{...}"], "PRINT", ["{a}"], null ],
+    [ ["PRINT", "{a}", "#", "{...}"], "PRINT", ["{a}"], null ],
     [ ["{a}", ":", "SLEEP", "{b}"], "SLEEP", ["{b}"], "{a}" ],
     [ ["{a}", ":", "TOSTRING", "{b}", "{c}"], "TOSTRING", ["{b}", "{c}"], "{a}" ],
     [ ["{a}", ":", "STRIP", "{b}"], "STRIP", ["{b}"], "{a}" ],
@@ -58,6 +61,7 @@
     [ ["{a}", ":", "IDENTITY", "{b}"], "IDENTITY_1", ["{b}"], "{a}" ],
     [ ["{a}", ":", "RAND"], "RAND", [], "{a}" ],
     [ ["{a}", "=", "{b}"], "ASSIGN", ["{b}"], "{a}" ],
+    [ ["{a}", "=", "{b}", "#", "{...}"], "ASSIGN", ["{b}"], "{a}" ],
     [ ["{a}", "{b}", "{c}", "{d}"], "{a}", ["{b}", "{c}", "{d}"], null ],
     [ ["{a}", "{b}", "{c}"], "{a}", ["{b}", "{c}"], null ],
     [ ["{a}", "{b}"], "{a}", ["{b}"], null ]
@@ -251,7 +255,7 @@
       ["char* s1=(uintptr_t)args[0]<0x10000?\"\":(char*)args[0]; char* s2=(uintptr_t)args[1]<0x10000?\"\":(char*)args[1]; char* buf=malloc(strlen(s1)+strlen(s2)+1); strcpy(buf, s1); strcat(buf, s2); return buf;", "{b}", "{c}"],
       ["(a, b) => String(a||'') + String(b||'')", "{b}", "{c}"]
     ],
-    "CONCAT_3": [
+        "CONCAT_3": [
       ["char* s1=(uintptr_t)args[0]<0x10000?\"\":(char*)args[0]; char* s2=(uintptr_t)args[1]<0x10000?\"\":(char*)args[1]; char* s3=(uintptr_t)args[2]<0x10000?\"\":(char*)args[2]; char* buf=malloc(strlen(s1)+strlen(s2)+strlen(s3)+1); strcpy(buf, s1); strcat(buf, s2); strcat(buf, s3); return buf;", "{b}", "{c}", "{d}"],
       ["(a, b, c) => String(a||'') + String(b||'') + String(c||'')", "{b}", "{c}", "{d}"]
     ],
@@ -260,7 +264,7 @@
       ["(a, b, c, d) => String(a||'') + String(b||'') + String(c||'') + String(d||'')", "{b}", "{c}", "{d}", "{e}"]
     ]
   },
-  [ "(", ")", ",", "#", "<", "+", "%", "^", ".", "=" ],
+  [ "(", ")", ",", "<", "+", "%", "^", ".", "=", "#" ],
   {
     "ERR_SYNTAX": [
       { "color": "red_bold", "text": "error[E00200]: Syntax is not defined" },
